@@ -1,13 +1,9 @@
 import './App.css';
 import Navbar from './Components/Navbar';
 import TextForm from './Components/TextForm';
-import About from './Components/About';
 import { useState } from 'react';
 import Alert from './Components/Alert';
-import {
 
-  Route, Link, Routes
-} from 'react-router-dom';
 
 
 function App() {
@@ -42,13 +38,11 @@ function App() {
     <>
 
       {/* Props => Properties in this we have this title and aboutText see in Navbar.js */}
-      <Navbar title="SamarCoding" aboutText="AboutUs" mode={mode} enableDarkMode={toggleMode} />
+      <Navbar title="TextTransition" aboutText="AboutUs" mode={mode} enableDarkMode={toggleMode} />
       <Alert alert={alert} />
       <div className="container my-5 ">
-        <Routes>
-          <Route exact path="/about" element={<About mode={mode} />} />
-          <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Enter the text to Analyze" mode={mode} />} />
-        </Routes>
+        <TextForm showAlert={showAlert} heading="Enter the text to Analyze" mode={mode} />
+
 
 
       </div>

@@ -65,7 +65,7 @@ export default function TextForm(props) {
     const [text, setText] = useState("")
     // text = "new text " //Wrong way 
     //setText = "new text" // correct way
-    let Word = text.split(" ").length - 1;
+
 
 
 
@@ -76,18 +76,18 @@ export default function TextForm(props) {
                 <div className="mb-3 mx-3">
                     <textarea className="form-control" value={text} onChange={handleonchange} style={{ backgroundColor: props.mode === "dark" ? "#032240" : "white", color: props.mode === "dark" ? "white" : "black", cursor: "pointer" }} id="myBox" rows="7"></textarea>
                 </div>
-                <button className="btn btn-success mx-3" onClick={handleupClick}>UpperCase</button>
-                <button className='btn btn-success mx-3' onClick={handleDownClick}>LowerCase</button>
-                <button className='btn btn-success mx-3' onClick={clearText}>ClearText</button>
-                <button className='btn btn-success mx-3' onClick={copyText}>CopyText</button>
-                <button className='btn btn-success mx-3' onClick={removeExtraSpaces}>RemoveExtraSpaces</button>
+                <button className="btn btn-success mx-3 my-1" onClick={handleupClick}>UpperCase</button>
+                <button className='btn btn-success mx-3 my-1' onClick={handleDownClick}>LowerCase</button>
+                <button className='btn btn-success mx-3 my-1' onClick={clearText}>ClearText</button>
+                <button className='btn btn-success mx-3 my-1' onClick={copyText}>CopyText</button>
+                <button className='btn btn-success mx-3 my-1' onClick={removeExtraSpaces}>RemoveExtraSpaces</button>
 
 
 
             </div>
             <div className="container my-5" style={{ color: props.mode === "dark" ? "white" : "black" }} >
                 <h2 >Text Summary</h2>
-                <p>{Word} words and {text.length} characters</p>
+                <p>{text.split(" ").filter((elem) => { return elem.length !== 0 }).length} words and {text.length} characters</p>
                 <p>{0.008 * text.split(" ").length} Minutes Read</p>
                 <p>{text.split('.').length} Sentences</p>
                 <h3 className='mt-5'>Preview</h3>
